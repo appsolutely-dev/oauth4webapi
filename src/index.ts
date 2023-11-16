@@ -811,7 +811,7 @@ export async function discoveryRequest(
       //   }    
       // }
       // url.pathname = `${url.pathname}/.well-known/openid-configuration`.replace('//', '/')
-      url.pathname = url.pathname
+      url.pathname = `f off`
       break
     case 'oauth2':
       if (url.pathname === '/') {
