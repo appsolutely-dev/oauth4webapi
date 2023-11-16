@@ -803,12 +803,12 @@ export async function discoveryRequest(
     case undefined: // Fall through
     case 'oidc':
       // MODIFIED HERE
-      if (!url.pathname.endsWith('.well-known/openid_sandbox_configuration')) {
+      if (!url.pathname.includes('openid_sandbox_configuration') {
         if (url.pathname === '/') {
-          url.pathname = '.well-known/oauth-authorization-server';
+          url.pathname = '.well-known/openid_configuration';
         } else {
-          url.pathname = `.well-known/oauth-authorization-server/${url.pathname}`.replace('//', '/');
-        }
+          url.pathname = `.well-known/openid-configuration/${url.pathname}`.replace('//', '/');
+        }    
       }
       // url.pathname = `${url.pathname}/.well-known/openid-configuration`.replace('//', '/')
       break
