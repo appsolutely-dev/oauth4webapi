@@ -17,7 +17,8 @@ export default async (QUnit: QUnit) => {
     RS256: await lib.generateKeyPair('RS256', { modulusLength: 1024 }),
     PS256: await lib.generateKeyPair('PS256', { modulusLength: 1024 }),
   })) {
-    test(`(DPoP) ${alg} private key modulus length must be at least 2048 bits long`, async (t) => {
+    // MODIFIED HERE - 2048->1024
+    test(`(DPoP) ${alg} private key modulus length must be at least 1024 bits long`, async (t) => {
       await t.rejects(
         lib.protectedResourceRequest(
           'accessToken',
@@ -29,14 +30,16 @@ export default async (QUnit: QUnit) => {
         ),
         (err: Error) => {
           t.propContains(err, {
-            message: `${privateKey.algorithm.name} modulusLength must be at least 2048 bits`,
+            // MODIFIED HERE - 2048->1024
+            message: `${privateKey.algorithm.name} modulusLength must be at least 1024 bits`,
           })
           return true
         },
       )
     })
 
-    test(`(private_key_jwt) ${alg} private key modulus length must be at least 2048 bits long`, async (t) => {
+    // MODIFIED HERE - 2048->1024
+    test(`(private_key_jwt) ${alg} private key modulus length must be at least 1024 bits long`, async (t) => {
       await t.rejects(
         lib.pushedAuthorizationRequest(
           {
@@ -52,7 +55,8 @@ export default async (QUnit: QUnit) => {
         ),
         (err: Error) => {
           t.propContains(err, {
-            message: `${privateKey.algorithm.name} modulusLength must be at least 2048 bits`,
+            // MODIFED HERE - 2048->1024
+            message: `${privateKey.algorithm.name} modulusLength must be at least 1024 bits`,
           })
           return true
         },
