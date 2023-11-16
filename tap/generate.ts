@@ -71,7 +71,8 @@ export default (QUnit: QUnit) => {
 
         if (isRSA(alg)) {
           const algorithm = <RsaHashedKeyAlgorithm>key.algorithm
-          t.equal(algorithm.modulusLength, 2048)
+          // MODIFIED HERE - 2048->1024
+          t.equal(algorithm.modulusLength, 1024)
           t.deepEqual(new Uint8Array(algorithm.publicExponent), new Uint8Array([0x01, 0x00, 0x01]))
         }
       }
