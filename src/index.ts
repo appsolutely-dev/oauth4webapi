@@ -2934,8 +2934,9 @@ function checkSupportedJwsAlg(alg: unknown) {
 }
 
 function checkRsaKeyAlgorithm(algorithm: RsaHashedKeyAlgorithm) {
-  if (typeof algorithm.modulusLength !== 'number' || algorithm.modulusLength < 2048) {
-    throw new OPE(`${algorithm.name} modulusLength must be at least 2048 bits`)
+  // MODIFIED HERE 1024->2048
+  if (typeof algorithm.modulusLength !== 'number' || algorithm.modulusLength < 1024) {
+    throw new OPE(`${algorithm.name} modulusLength must be at least 1024 bits`)
   }
 }
 
