@@ -802,15 +802,7 @@ export async function discoveryRequest(
   switch (options?.algorithm) {
     case undefined: // Fall through
     case 'oidc':
-      // MODIFIED HERE
-      // if (!url.pathname.includes('openid_sandbox_configuration') {
-      //   if (url.pathname === '/') {
-      //     url.pathname = '.well-known/openid_configuration';
-      //   } else {
-      //     url.pathname = `.well-known/openid-configuration/${url.pathname}`.replace('//', '/');
-      //   }    
-      // }
-      // url.pathname = `${url.pathname}/.well-known/openid-configuration`.replace('//', '/')
+
       url.pathname = `f off`
       break
     case 'oauth2':
