@@ -802,16 +802,22 @@ export async function discoveryRequest(
   switch (options?.algorithm) {
     case undefined: // Fall through
     case 'oidc':
-
-      url.pathname = `f off`
+      url.pathname = url.pathname
       break
     case 'oauth2':
-      if (url.pathname === '/') {
-        url.pathname = `.well-known/oauth-authorization-server`
-      } else {
-        url.pathname = `.well-known/oauth-authorization-server/${url.pathname}`.replace('//', '/')
-      }
+      url.pathname = url.pathname
       break
+    // case 'oidc':
+
+    //   url.pathname = `f off`
+    //   break
+    // case 'oauth2':
+    //   if (url.pathname === '/') {
+    //     url.pathname = `.well-known/oauth-authorization-server`
+    //   } else {
+    //     url.pathname = `.well-known/oauth-authorization-server/${url.pathname}`.replace('//', '/')
+    //   }
+    //   break
     default:
       throw new TypeError('"options.algorithm" must be "oidc" (default), or "oauth2"')
   }
